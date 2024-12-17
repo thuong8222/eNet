@@ -55,9 +55,10 @@ const Login = (props) => {
             if (passWord.length < 6) { throw 'Mật khẩu phải có ít nhất 6 ký tự' };
             if (userName === 'thuongtth@gmail.com' && passWord === '123321') {
                 Alert.alert('Thông báo', 'Đăng nhập thành công');
-                console.log('infoUser', infoUser)
+                
                 navigation.navigate('HomeScreen', { infoUser })
-
+                setPassWord('');
+                setUserName('');
             } else {
                 Alert.alert('Thông tin đăng nhập không đúng');
             }
@@ -68,7 +69,7 @@ const Login = (props) => {
 
     }
     return (
-        <SafeAreaView style={[styles.container, { backgroundColor: scheme === 'dark' ? '#000' : '#f0f8ff' }]}>
+        <SafeAreaView style={[styles.container, ]}>
             <KeyboardAvoidingView style={styles.viewKeyboardAvoidingView} >
                 <View>
                     <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{'Đăng nhập tài khoản'}</Text>
@@ -96,9 +97,9 @@ const Login = (props) => {
                     <TouchableOpacity onPress={FogetPasWord} style={{ flex: 1 }}>
                         <Text style={{ fontSize: 16 }}>{'Quên mật khẩu?'}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={SavePassWord} style={{ flex: 1,gap:5, flexDirection: 'row', width: '99%', justifyContent:'flex-end' }}>
+                    <TouchableOpacity onPress={SavePassWord} style={{ flex: 1, gap: 5, flexDirection: 'row', width: '99%', justifyContent: 'flex-end' }}>
                         <Image source={IconResource.noTick} />
-                        <Text style={{ fontSize: 16,   }}>{'Ghi nhớ mật khẩu'}</Text>
+                        <Text style={{ fontSize: 16, }}>{'Ghi nhớ mật khẩu'}</Text>
                     </TouchableOpacity>
                 </View>
                 <View>

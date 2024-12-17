@@ -14,11 +14,11 @@ const PostDetail = (props) => {
     const navigation = useNavigation();
 
     const [isSticky, setIsSticky] = useState(true);
-  
+
     const [page, setPage] = useState(1);
     const [dataAllPage, setDataAllPage] = useState(1)
     const dataUser = props.route.params;
-    console.log('dataUser', dataUser)
+  
     const dataMenu = [
         { id: 1, text: 'Phát trực tiếp', imageitem: 'user-add' },
         { id: 2, text: 'Vị trí' },
@@ -78,7 +78,9 @@ const PostDetail = (props) => {
                             listImage.map((props, index) => {
                                 return (
                                     <View key={index} activeOpacity={.7} style={{ height: width * (398 / 418), borderRadius: 20 }}>
-                                        <Image source={ImagesResource.backBanner} resizeMode='contain' />
+                                        {/* <Image source={ImagesResource.backBanner} resizeMode='cover' style={{ borderRadius: 20, height: width * (398 / 418), width: width - 20 }} /> */}
+                                        <Image source={{ uri: props.photoUrl }} resizeMode='cover' style={{ borderRadius: 20, height: width * (398 / 418), width: width - 20 }} />
+
                                     </View>
                                 )
                             })

@@ -62,7 +62,8 @@ const ItemPost = (props) => {
                            listImage.map((props, index) => {
                                return (
                                    <View key={index} activeOpacity={.7} style={{ height: width * (398 / 418), borderRadius: 20 }}>
-                                       <Image source={ImagesResource.backBanner} resizeMode='contain' />
+                                       {/* <Image source={ImagesResource.backBanner} resizeMode='cover' style={{borderRadius:20, height: width * (398 / 418), width:width-20}} /> */}
+                                       <Image source={{uri:props.photoUrl}} resizeMode='cover' style={{borderRadius:20, height: width * (398 / 418), width:width-20}} />
                                    </View>
                                )
                            })

@@ -24,8 +24,8 @@ const Home = (props) => {
     ]);
     const [page, setPage] = useState(1);
     const [dataAllPage, setDataAllPage] = useState(1)
-    // const dataUser = props.route.params;
-    const dataUser = { infoUser: { email: "thuongtth@gmail.com", fullname: "Trương Thị Hoài Thương", id: 1, userName: "thuongtth" } }
+   const dataUser = props.route.params;
+  //  const dataUser = { infoUser: { email: "thuongtth@gmail.com", fullname: "Trương Thị Hoài Thương", id: 1, userName: "thuongtth" } }
     const dataMenu = [
         { id: 1, text: 'Phát trực tiếp', imageitem: 'cameravideo' },
         { id: 2, text: 'Vị trí', imageitem: 'location' },
@@ -36,6 +36,7 @@ const Home = (props) => {
         LoadData();
     }, [page])
     const LoadData = async () => {
+        setIsRefreshingData(true)
         try {
 
             let rq = await fetch(`https://api-blue-archive.vercel.app/api/characters?page=${page}`,
@@ -58,6 +59,8 @@ const Home = (props) => {
         catch {
 
         }
+        setIsRefreshingData(false)
+
     }
     const PostPress = () => { setActiveTab('Post') }
     const ImagePress = () => { setActiveTab('Image') }
@@ -75,9 +78,12 @@ const Home = (props) => {
     const DetailPostPress = (data) => {
         navigation.navigate('PostDetailScreen', { data });
     }
+    const LikePostPress =(data)=>{
+        Alert.alert('thích bài viết')
+    }
     const renderItem_dataPosts = ({ item }) => {
         return (
-            <ItemPost data={item} gotoDetailPost={DetailPostPress} />
+            <ItemPost data={item} gotoDetailPost={DetailPostPress} gotoLikePost={LikePostPress} />
         )
     }
     const LoadMore = () => {
@@ -98,7 +104,7 @@ const Home = (props) => {
     return (
         <SafeAreaView style={[styles.container,]}>
             <View style={{ flexDirection: 'row', height: 56, backgroundColor: '#fff', alignItems: 'center', paddingHorizontal: 10, }}>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={()=>navigation.goBack()} >
                     <Image source={IconResource.chevronLeft} />
                 </TouchableOpacity>
                 <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
@@ -126,7 +132,7 @@ const Home = (props) => {
                     </View>
                 </ImageBackground>
 
-                <View style={{ backgroundColor: '#fff', marginBottom: 16, paddingTop: 60 }}>
+                <View style={{ backgroundColor: '#fff', marginBottom: 16, paddingTop: 65 }}>
                     <View style={{ paddingTop: -45, backgroundColor: '#fff', flexDirection: 'row', width: '99%', justifyContent: 'center', alignItems: 'center', height: 40, gap: 10, }}>
                         <View style={{ flexDirection: 'row', gap: 2, }}>
                             <Text style={{ fontWeight: 'bold' }}>{'700K'}</Text>
