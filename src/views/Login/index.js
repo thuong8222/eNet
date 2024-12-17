@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationRouteContext, useNavigation } from '@react-navigation/native';
 import { SafeAreaView, Image, useColorScheme, Modal, KeyboardAvoidingView, TouchableOpacity, Text, View, TextInput, StyleSheet, Alert, Dimensions } from 'react-native';
-
+import IconResource from '../../assets/icon';
+import ImagesResource from '../../assets/images';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -11,7 +12,7 @@ const Login = (props) => {
     const scheme = useColorScheme();
     const [userName, setUserName] = useState('');
     const [passWord, setPassWord] = useState('');
-    const [isSecureTextEntry, setIsSecureTextEntry] = useState(false);
+    const [isSecureTextEntry, setIsSecureTextEntry] = useState(true);
     const [usernameError, setUsernameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const infoUser = {
@@ -83,7 +84,7 @@ const Login = (props) => {
                         <TextInput value={passWord} onChangeText={setPassWord} secureTextEntry={isSecureTextEntry} placeholder='*******' autoFocus placeholderTextColor={'#e3e3e3'} style={{ height: 40, width: '100%', }}></TextInput>
                         <TouchableOpacity onPress={ToggleSecureTextEntry} style={{ height: 40, width: 40, position: 'absolute', right: 10, justifyContent: 'center', alignItems: 'center' }}>
                             {isSecureTextEntry ?
-                                <Text>{'ẩn'}</Text>
+                                <Image source={IconResource.eyeOpen} />
                                 :
                                 <Text>{'hiện'}</Text>
                             }
@@ -95,9 +96,9 @@ const Login = (props) => {
                     <TouchableOpacity onPress={FogetPasWord} style={{ flex: 1 }}>
                         <Text style={{ fontSize: 16 }}>{'Quên mật khẩu?'}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={SavePassWord} style={{ flex: 1 }}>
-
-                        <Text style={{ fontSize: 16, textAlign: 'right' }}>{'Ghi nhớ mật khẩu'}</Text>
+                    <TouchableOpacity onPress={SavePassWord} style={{ flex: 1,gap:5, flexDirection: 'row', width: '99%', justifyContent:'flex-end' }}>
+                        <Image source={IconResource.noTick} />
+                        <Text style={{ fontSize: 16,   }}>{'Ghi nhớ mật khẩu'}</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
@@ -108,7 +109,7 @@ const Login = (props) => {
                 <View>
                     <Text style={{ textAlign: 'center', color: '#9DA4AE' }}>{'hoặc'}</Text>
                 </View>
-                <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'center', gap: 2 }}>
+                <View style={{ flexDirection: 'row', width: '99%', justifyContent: 'center', gap: 2 }}>
                     <Text style={{ textAlign: 'center', color: '#9DA4AE' }}>{'Bạn đã có tài khoản?'}</Text>
                     <TouchableOpacity onPress={Register}>
                         <Text style={{ color: '#3864FF' }}>{'Đăng ký'}</Text>

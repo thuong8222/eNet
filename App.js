@@ -35,7 +35,7 @@ function App() {
 
       <StatusBar animated={true}  />
 
-      <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName='LoginScreen' screenOptions={{ headerShown: false }}>
         <Stack.Screen name="LoginScreen" component={Login} />
         <Stack.Screen name="HomeScreen" component={Home} />
         <Stack.Screen name="PostDetailScreen" component={PostDetail} />

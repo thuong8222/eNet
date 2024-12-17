@@ -152,7 +152,6 @@ const Home = (props) => {
                     <TouchableOpacity onPress={PostPress} style={activeTab === 'Post' ? styles.tabActive : styles.tab}>
                         <Text style={{ color: '#000', fontSize: 14 }}>Bài viết</Text>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity onPress={ImagePress} style={{width: 100, height: 42, alignItems: 'center', justifyContent: 'center'}}> */}
                     <TouchableOpacity onPress={ImagePress} style={activeTab === 'Image' ? styles.tabActive : styles.tab}>
                         <Text style={{ color: '#000', fontSize: 14 }}>Ảnh</Text>
                     </TouchableOpacity>
