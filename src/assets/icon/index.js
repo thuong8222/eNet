@@ -15,5 +15,11 @@ export default {
     userAdd: require('./user-add.png'),
     smile: require('./smile.png'),
     IconoImage: require('./IconoImage.png'),
+    clear: require('./clear.png'),
+    cameraCam: require('./cameraCam.png'),
+    theEarth: require('./theEarth.png'),
+    chevronDown: require('./chevron-down.png'),
+    iconImageCam: require('./image.png'),
+    pluss: require('./pluss.png'),
    
     }

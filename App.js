@@ -23,6 +23,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/views/Login';
 import Home from './src/views/Home';
 import PostDetail from './src/views/PostDetail';
+import PostCreate from './src/views/PostCreate';
 
 
 
@@ -32,12 +33,13 @@ function App() {
   return (
     <NavigationContainer>
 
-      <StatusBar animated={true} backgroundColor={'#0673D8'} />
+      <StatusBar animated={true}  />
 
       <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{ headerShown: false }}>
         <Stack.Screen name="LoginScreen" component={Login} />
         <Stack.Screen name="HomeScreen" component={Home} />
         <Stack.Screen name="PostDetailScreen" component={PostDetail} />
+        <Stack.Screen name="PostCreateScreen" component={PostCreate} />
       </Stack.Navigator>
 
     </NavigationContainer>
