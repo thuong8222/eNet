@@ -156,7 +156,7 @@ const Home = (props) => {
 
                 <ScrollView horizontal style={{ height: 48, backgroundColor: '#fff', paddingLeft: 10, paddingHorizontal: 10, borderBottomColor: '#00000008', borderBottomWidth: 1, borderTopColor: '#00000008', borderTopWidth: 1 }}>
                     <TouchableOpacity onPress={PostPress} style={activeTab === 'Post' ? styles.tabActive : styles.tab}>
-                        <Text style={{ color: '#000', fontSize: 14 }}>Bài viết</Text>
+                        <Text style={{ color: '#000', fontSize: 14,  }}>Bài viết</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={ImagePress} style={activeTab === 'Image' ? styles.tabActive : styles.tab}>
                         <Text style={{ color: '#000', fontSize: 14 }}>Ảnh</Text>
@@ -222,8 +222,8 @@ const styles = StyleSheet.create({
         }),
     },
     iconAct: { height: 14, width: 16 },
-    tab: { height: 48, justifyContent: 'center', paddingRight: 10, justifyContent: 'center' },
-    tabActive: { borderBottomColor: '#3864FF', paddingRight: 10, borderBottomWidth: 3, height: 48, justifyContent: 'center' },
+    tab: { height: 48, justifyContent: 'center', marginRight: 10, justifyContent: 'center' },
+    tabActive: { borderBottomColor: '#3864FF', marginRight: 10, borderBottomWidth: 3, height: 48, justifyContent: 'center' },
 
 
 });
